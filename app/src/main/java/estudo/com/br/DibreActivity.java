@@ -38,7 +38,7 @@ public class DibreActivity extends ActionBarActivity {
     }
 
     void chamaDibreIsolado(){
-        setContentView(R.layout.DibreIsolado);
+        setContentView(R.layout.dibreIsolado);
         inicializaObjDibre();
     }
     void chamaMain(){
