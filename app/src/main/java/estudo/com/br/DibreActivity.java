@@ -59,25 +59,24 @@ public class DibreActivity extends ActionBarActivity {
         String url = "http://api.dribbble.com/shots/";
 
         RequestQueue queue = Volley.newRequestQueue(this);
-
+        final Shhhot[] shot2 = {new Shhhot()};
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url + id,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         Gson gson = new Gson();
-                        Shhhot shot = gson.fromJson(response, Shhhot.class);
-                        txName.setText(shot.getPlayer().getname());
-                        txDescription.setText(shot.getDescription());
-                        baixaImagemAvatar(shot.getPlayer().getAvatar_url(),imageAvatar,50,50);
-                        baixaImagem(shot.getImage_url(),imagePost,350,199);
+                        shot2[0] = gson.fromJson(response, Shhhot.class);
+                        txName.setText(shot2[0].getPlayer().getname());
+                        txDescription.setText(shot2[0].getDescription());
+                        baixaImagemAvatar(shot2[0].getPlayer().getAvatar_url(),imageAvatar,50,50);
+                        baixaImagem(shot2[0].getImage_url(),imagePost,350,199);
                     }
 
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        //shot=new Shhhot();
-                        //shot.setTitle("DEU RUIM");
+                      txDescription.setText("DEU RUIM");
                     }
                 }
         );
@@ -100,7 +99,7 @@ public class DibreActivity extends ActionBarActivity {
     void baixaImagem(String url, ImageView imageView, int width, int height){
         Picasso.with(this)
                 .load(url)
-                .resize(width,height)
+                .resize(width, height)
                 .into(imageView);
     }
 }
