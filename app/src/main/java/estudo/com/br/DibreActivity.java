@@ -69,7 +69,7 @@ public class DibreActivity extends ActionBarActivity {
                         txName.setText(shot2[0].getPlayer().getname());
                         txDescription.setText(shot2[0].getDescription());
                         baixaImagemAvatar(shot2[0].getPlayer().getAvatar_url(),imageAvatar,50,50);
-                        baixaImagem(shot2[0].getImage_url(),imagePost,350,199);
+                        baixaImagem(shot2[0].getImage_url(),imagePost,300,190);
                     }
 
                 },
