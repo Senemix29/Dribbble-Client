@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.android.volley.Request;
@@ -14,39 +15,42 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
-
+import com.squareup.picasso.Picasso;
 
 public class DibreActivity extends ActionBarActivity {
 
     TextView txName, txDescription;
-    Button btBuscarPorId;
+    Button btBuscarPorId,btTodosShots;
     EditText etShotId;
-    @Override
+    ImageView imagePost,imageAvatar;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         chamaMain();
     }
 
     void inicializaMainObj(){
-        btBuscarPorId = (Button) findViewById(R.id.buttonBuscarPorId);
+        btBuscarPorId = (Button) findViewById(R.id.btBuscarPorId);
+        btTodosShots = (Button) findViewById(R.id.btTodosShots);
         etShotId = (EditText) findViewById(R.id.editTextShotId);
     }
     void inicializaObjDibre(){
         txName = (TextView) findViewById(R.id.TxName);
         txDescription = (TextView) findViewById(R.id.TxDescription);
+        imageAvatar = (ImageView) findViewById(R.id.imageAvatar);
+        imagePost = (ImageView) findViewById(R.id.imagePost);
     }
 
     void chamaDibreIsolado(){
-        setContentView(R.layout.dibreIsolado);
+        setContentView(R.layout.dibre_isolado);
         inicializaObjDibre();
     }
     void chamaMain(){
-        setContentView(R.layout.mainDibre);
+        setContentView(R.layout.main_dibre);
         inicializaMainObj();
     }
 
-    void ActionBuscarPorId(View view){
+    public void ActionBuscarPorId(View view){
         chamaDibreIsolado();
         DibreShot(Integer.valueOf(etShotId.getText().toString()));
     }
@@ -64,6 +68,8 @@ public class DibreActivity extends ActionBarActivity {
                         Shhhot shot = gson.fromJson(response, Shhhot.class);
                         txName.setText(shot.getPlayer().getname());
                         txDescription.setText(shot.getDescription());
+                        baixaImagem(shot.getPlayer().getAvatar_url(),imageAvatar,50,50);
+                        baixaImagem(shot.getImage_url(),imagePost,350,199);
                     }
 
                 },
@@ -84,6 +90,11 @@ public class DibreActivity extends ActionBarActivity {
                 .makeText(DibreActivity.this, message, duration);
         toast.show();
     }
-
-
+    void baixaImagem(String url, ImageView imageView, int width, int height){
+        Picasso.with(this)
+                .load(url)
+                .resize(width,height)
+                .centerCrop()
+                .into(imageView);
+    }
 }

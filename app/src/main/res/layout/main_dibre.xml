@@ -20,14 +20,14 @@
     </EditText>
 
     <Button
-        android:id="@+id/buttonBuscarPorId"
+        android:id="@+id/btBuscarPorId"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Buscar Shot por ID"
         android:onClick="ActionBuscarPorId"/>
 
     <Button
-        android:id="@+id/buttonTodosShots"
+        android:id="@+id/btTodosShots"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Ver os Shots mais populares" />

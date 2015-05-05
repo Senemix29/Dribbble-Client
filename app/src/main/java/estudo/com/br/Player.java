@@ -32,9 +32,6 @@ public class Player {
 	public String getUrl(){
 		return url;
 	}
-	public String getAvatarUrl(){
-		return avatar_url;
-	}
 	private String getUserName(){
 		return username;
 	}
