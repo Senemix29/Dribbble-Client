@@ -68,7 +68,7 @@ public class DibreActivity extends ActionBarActivity {
                         Shhhot shot = gson.fromJson(response, Shhhot.class);
                         txName.setText(shot.getPlayer().getname());
                         txDescription.setText(shot.getDescription());
-                        baixaImagem(shot.getPlayer().getAvatar_url(),imageAvatar,50,50);
+                        baixaImagemAvatar(shot.getPlayer().getAvatar_url(),imageAvatar,50,50);
                         baixaImagem(shot.getImage_url(),imagePost,350,199);
                     }
 
@@ -90,11 +90,17 @@ public class DibreActivity extends ActionBarActivity {
                 .makeText(DibreActivity.this, message, duration);
         toast.show();
     }
+    void baixaImagemAvatar(String url, ImageView imageView, int width, int height){
+        Picasso.with(this)
+                .load(url)
+                .resize(width,height)
+                .transform(new CircleTransform())
+                .into(imageView);
+    }
     void baixaImagem(String url, ImageView imageView, int width, int height){
         Picasso.with(this)
                 .load(url)
                 .resize(width,height)
-                .centerCrop()
                 .into(imageView);
     }
 }

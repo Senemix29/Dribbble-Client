@@ -2,20 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:weightSum="1">
 
     <ImageView
         android:id="@+id/imagePost"
         android:layout_width="350dp"
-        android:layout_height="199dp"
-        android:layout_gravity="center" />
-
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true" />
 
     <ImageView
         android:id="@+id/imageAvatar"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:adjustViewBounds="false" />
+        android:adjustViewBounds="false"
+        />
 
     <TextView
         android:id="@+id/TxName"
@@ -26,12 +28,12 @@
 
     <TextView
         android:id="@+id/TxDescription"
-        android:layout_width="268dp"
-        android:layout_height="160dp"
+        android:layout_width="350dp"
+        android:layout_height="149dp"
+        android:textSize="16sp"
         android:layout_gravity="center"
-        android:padding="10dp"
-        android:textSize="16sp" >
-
+        android:layout_weight="0.78">
     </TextView>
+
 
 </LinearLayout>
