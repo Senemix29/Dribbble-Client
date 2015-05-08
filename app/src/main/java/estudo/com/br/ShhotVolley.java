@@ -15,18 +15,17 @@ import com.android.volley.toolbox.Volley;
 public class ShhotVolley {
 
     private static final String url = "http://api.dribbble.com/shots/";
-    Shhhot shot2;
-    Shhhot getShhhotVolley(Context context, int id){
 
+
+    Shhhot[] getShhhotVolley(Context context, int id){
+    final Shhhot[] shot2 = {new Shhhot()};
     RequestQueue queue = Volley.newRequestQueue(context);
-
         StringRequest stringRequest = new StringRequest(Request.Method.GET,url+id,
             new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                Gson gson = new Gson();
-                Shhhot shot = gson.fromJson(response,Shhhot.class);
-
+                    Gson gson = new Gson();
+                    shot2[0] = gson.fromJson(response,Shhhot.class);
                 }
 
             },

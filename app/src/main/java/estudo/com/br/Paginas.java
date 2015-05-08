@@ -2,6 +2,7 @@ package estudo.com.br;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Paginas implements Serializable {
 
@@ -9,9 +10,9 @@ public class Paginas implements Serializable {
 	private int per_page;
 	private int pages;
 	private int total;
-	private Shhhot shots;
+	private List<Shhhot> shots;
 	
-	public Shhhot getShhhot(){
+	public List<Shhhot> getShhhot(){
 		return shots;
 	}
 	public int getPage(){

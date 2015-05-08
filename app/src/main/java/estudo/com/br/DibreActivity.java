@@ -2,6 +2,8 @@ package estudo.com.br;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.Spanned;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,7 +21,7 @@ import com.squareup.picasso.Picasso;
 
 public class DibreActivity extends ActionBarActivity {
 
-    TextView txName, txDescription;
+    TextView txName, txDescription, txTitle;
     Button btBuscarPorId,btTodosShots;
     EditText etShotId;
     ImageView imagePost,imageAvatar;
@@ -39,10 +41,11 @@ public class DibreActivity extends ActionBarActivity {
         txDescription = (TextView) findViewById(R.id.TxDescription);
         imageAvatar = (ImageView) findViewById(R.id.imageAvatar);
         imagePost = (ImageView) findViewById(R.id.imagePost);
+        txTitle = (TextView) findViewById(R.id.txTitle);
     }
 
     void chamaDibreIsolado(){
-        setContentView(R.layout.dibre_isolado);
+        setContentView(R.layout.dibbbre_shot_detalhe);
         inicializaObjDibre();
     }
     void chamaMain(){
@@ -59,17 +62,19 @@ public class DibreActivity extends ActionBarActivity {
         String url = "http://api.dribbble.com/shots/";
 
         RequestQueue queue = Volley.newRequestQueue(this);
-        final Shhhot[] shot2 = {new Shhhot()};
+        final Shhhot[] shot = {new Shhhot()};
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url + id,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         Gson gson = new Gson();
-                        shot2[0] = gson.fromJson(response, Shhhot.class);
-                        txName.setText(shot2[0].getPlayer().getname());
-                        txDescription.setText(shot2[0].getDescription());
-                        baixaImagemAvatar(shot2[0].getPlayer().getAvatar_url(),imageAvatar,50,50);
-                        baixaImagem(shot2[0].getImage_url(),imagePost,300,190);
+                        shot[0] = gson.fromJson(response, Shhhot.class);
+                        txName.setText(shot[0].getPlayer().getname());
+                        Spanned spanned = Html.fromHtml(shot[0].getDescription());
+                        txDescription.setText(spanned);
+                        txTitle.setText(shot[0].getTitle());
+                        baixaImagemAvatar(shot[0].getPlayer().getAvatar_url(),imageAvatar,50,50);
+                        baixaImagem(shot[0].getImage_url(),imagePost,350,200);
                     }
 
                 },
