@@ -1,10 +1,13 @@
 package estudo.com.br;
 
+import android.app.Activity;
+import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.Spanned;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -19,6 +22,9 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.squareup.picasso.Picasso;
 
+import de.keyboardsurfer.android.widget.crouton.Crouton;
+import de.keyboardsurfer.android.widget.crouton.Style;
+
 public class DibreActivity extends ActionBarActivity {
 
     TextView txName, txDescription, txTitle;
@@ -31,6 +37,15 @@ public class DibreActivity extends ActionBarActivity {
         chamaMain();
     }
 
+    @Override
+    protected void onDestroy() {
+        Crouton.cancelAllCroutons();
+        super.onDestroy();
+    }
+
+    Activity getActivity(){
+        return this;
+    }
     void inicializaMainObj(){
         btBuscarPorId = (Button) findViewById(R.id.btBuscarPorId);
         btTodosShots = (Button) findViewById(R.id.btTodosShots);
@@ -44,6 +59,7 @@ public class DibreActivity extends ActionBarActivity {
         txTitle = (TextView) findViewById(R.id.txTitle);
     }
 
+
     void chamaDibreIsolado(){
         setContentView(R.layout.dibbbre_shot_detalhe);
         inicializaObjDibre();
@@ -54,7 +70,7 @@ public class DibreActivity extends ActionBarActivity {
     }
 
     public void ActionBuscarPorId(View view){
-        chamaDibreIsolado();
+        minimizaTeclado();
         DibreShot(Integer.valueOf(etShotId.getText().toString()));
     }
 
@@ -67,11 +83,14 @@ public class DibreActivity extends ActionBarActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        chamaDibreIsolado();
                         Gson gson = new Gson();
                         shot[0] = gson.fromJson(response, Shhhot.class);
                         txName.setText(shot[0].getPlayer().getname());
-                        Spanned spanned = Html.fromHtml(shot[0].getDescription());
-                        txDescription.setText(spanned);
+                        if (shot[0].getDescription()!= null) {
+                            Spanned spanned = Html.fromHtml(shot[0].getDescription());
+                            txDescription.setText(spanned);
+                        }
                         txTitle.setText(shot[0].getTitle());
                         baixaImagemAvatar(shot[0].getPlayer().getAvatar_url(),imageAvatar,50,50);
                         baixaImagem(shot[0].getImage_url(),imagePost,350,200);
@@ -81,7 +100,8 @@ public class DibreActivity extends ActionBarActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                      txDescription.setText("DEU RUIM");
+                        Crouton.showText(getActivity(),"Shot não encontrado", Style.ALERT);
+                        //txDescription.setText("DEU RUIM");
                     }
                 }
         );
@@ -106,5 +126,9 @@ public class DibreActivity extends ActionBarActivity {
                 .load(url)
                 .resize(width, height)
                 .into(imageView);
+    }
+    void minimizaTeclado(){
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),InputMethodManager.HIDE_NOT_ALWAYS);
     }
 }
