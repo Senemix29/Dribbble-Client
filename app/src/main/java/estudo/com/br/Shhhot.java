@@ -1,5 +1,8 @@
 package estudo.com.br;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.io.Serializable;
 
 public class Shhhot implements Serializable {
@@ -133,8 +136,5 @@ public class Shhhot implements Serializable {
 	public Player getPlayer(){
 		return player;
 	}
-	@Override
-    public String toString(){
-        return title;
-    }
+
 }

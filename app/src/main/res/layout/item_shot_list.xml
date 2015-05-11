@@ -16,21 +16,23 @@
         <ImageView
             android:layout_width="350dp"
             android:layout_height="200dp"
-            android:id="@+id/imageView"
+            android:id="@+id/lsImagePost"
             android:layout_gravity="center_horizontal"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
 
         <TextView
             android:layout_width="350dp"
-            android:layout_height="60dp"
-            android:id="@+id/textView"
+            android:layout_height="58dp"
+            android:id="@+id/lsTxTitle"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="0dp"
-            android:layout_alignBottom="@+id/imageView"
+            android:layout_marginBottom="5dp"
+            android:layout_alignBottom="@+id/lsImagePost"
             android:layout_centerHorizontal="true"
             android:background="#80000000"
-            android:autoText="false" />
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
     </RelativeLayout>
 
 </LinearLayout>

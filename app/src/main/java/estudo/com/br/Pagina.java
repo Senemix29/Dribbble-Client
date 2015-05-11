@@ -1,10 +1,13 @@
 package estudo.com.br;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Paginas implements Serializable {
+public class Pagina implements Serializable {
 
 	private int page;
 	private int per_page;
@@ -27,4 +30,5 @@ public class Paginas implements Serializable {
 	public int totalPlayer(){
 		return total;
 	}
+
 }

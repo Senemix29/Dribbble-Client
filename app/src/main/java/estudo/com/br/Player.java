@@ -1,6 +1,11 @@
 package estudo.com.br;
 
-public class Player {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
+public class Player implements Serializable {
 
 	private int id;
 	private String name;
@@ -149,4 +154,5 @@ public class Player {
 	public void setUrl(String url) {
 		this.url = url;
 	}
+
 }
