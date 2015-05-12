@@ -24,7 +24,6 @@ public class ShhhotListAdapter extends ArrayAdapter<Shhhot> {
         this.context=context;
         this.shots=shots;
     }
-
     @Override
     public View getView(int position, View view, ViewGroup parent){
         Shhhot shot = shots.get(position);
