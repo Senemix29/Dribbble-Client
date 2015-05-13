@@ -1,2 +1,2 @@
 # Dribbble-Client
-App para acesso aos Shots mais populares da rede social Dribbble.
+App client to get access to the most popular Shots on Dribbble social network through his API.
