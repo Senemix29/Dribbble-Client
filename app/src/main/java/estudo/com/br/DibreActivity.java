@@ -41,8 +41,6 @@ public class DibreActivity extends ListActivity {
         objListeners();
         cont++;
         chamaDibres(cont);
-
-
     }
     @Override
     protected void onDestroy() {

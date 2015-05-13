@@ -26,6 +26,7 @@ public class DetalheShotActivity extends Activity {
         inicializaObjDibre();
         montaShot(shot);
 
+
     }
     void montaShot(Shhhot shot) {
         if (shot!=null) {
