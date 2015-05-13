@@ -1,4 +1,4 @@
-package estudo.com.br;
+package estudo.com.br.controllers;
 
 /**
  * Created by Natan on 05/05/2015.

@@ -1,10 +1,6 @@
-package estudo.com.br;
-
-import android.os.Parcel;
-import android.os.Parcelable;
+package estudo.com.br.entitys;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Pagina implements Serializable {

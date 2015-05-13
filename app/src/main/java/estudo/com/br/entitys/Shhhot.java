@@ -1,7 +1,4 @@
-package estudo.com.br;
-
-import android.os.Parcel;
-import android.os.Parcelable;
+package estudo.com.br.entitys;
 
 import java.io.Serializable;
 
