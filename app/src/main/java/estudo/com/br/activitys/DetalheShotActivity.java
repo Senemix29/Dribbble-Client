@@ -1,4 +1,4 @@
-package estudo.com.br;
+package estudo.com.br.activitys;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import estudo.com.br.R;
 import estudo.com.br.controllers.CircleTransform;
 import estudo.com.br.entitys.Shhhot;
 

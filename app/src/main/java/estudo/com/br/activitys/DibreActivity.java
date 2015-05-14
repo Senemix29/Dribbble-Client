@@ -1,4 +1,4 @@
-package estudo.com.br;
+package estudo.com.br.activitys;
 
 import android.app.Activity;
 import android.app.ListActivity;
@@ -19,6 +19,7 @@ import com.google.gson.Gson;
 
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
+import estudo.com.br.R;
 import estudo.com.br.controllers.ShhhotListAdapter;
 import estudo.com.br.entitys.Pagina;
 import estudo.com.br.entitys.Shhhot;
