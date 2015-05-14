@@ -1,4 +1,4 @@
-package estudo.com.br.entitys;
+package estudo.com.br;
 
 import java.io.Serializable;
 import java.util.List;

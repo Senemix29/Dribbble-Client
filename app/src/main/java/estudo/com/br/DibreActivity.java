@@ -1,4 +1,4 @@
-package estudo.com.br.activitys;
+package estudo.com.br;
 
 import android.app.Activity;
 import android.app.ListActivity;
@@ -17,10 +17,6 @@ import com.github.clans.fab.FloatingActionMenu;
 import com.google.gson.Gson;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
-import estudo.com.br.R;
-import estudo.com.br.controllers.ShhhotListAdapter;
-import estudo.com.br.entitys.Pagina;
-import estudo.com.br.entitys.Shhhot;
 
 import static android.widget.AdapterView.OnItemClickListener;
 

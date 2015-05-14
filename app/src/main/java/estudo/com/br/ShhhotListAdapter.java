@@ -1,4 +1,4 @@
-package estudo.com.br.controllers;
+package estudo.com.br;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,9 +11,6 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
-
-import estudo.com.br.R;
-import estudo.com.br.entitys.Shhhot;
 
 /**
  * Created by Natan on 10/05/2015.

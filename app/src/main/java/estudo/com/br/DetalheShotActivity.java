@@ -1,4 +1,4 @@
-package estudo.com.br.activitys;
+package estudo.com.br;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,9 +7,6 @@ import android.text.Spanned;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.squareup.picasso.Picasso;
-import estudo.com.br.R;
-import estudo.com.br.controllers.CircleTransform;
-import estudo.com.br.entitys.Shhhot;
 
 
 public class DetalheShotActivity extends Activity {
