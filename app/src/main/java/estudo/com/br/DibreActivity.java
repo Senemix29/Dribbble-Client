@@ -2,28 +2,26 @@ package estudo.com.br;
 
 import android.app.Activity;
 import android.app.ListActivity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
+
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 import com.google.gson.Gson;
-import com.android.volley.VolleyError;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
-import estudo.com.br.DetalheShotActivity;
-import estudo.com.br.entitys.Pagina;
-import estudo.com.br.R;
-import estudo.com.br.entitys.Shhhot;
 import estudo.com.br.controllers.ShhhotListAdapter;
+import estudo.com.br.entitys.Pagina;
+import estudo.com.br.entitys.Shhhot;
 
 import static android.widget.AdapterView.OnItemClickListener;
 
@@ -37,6 +35,7 @@ public class DibreActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.shot_listview);
         cont=0;
+
         inicializaObjetos();
         objListeners();
         cont++;
@@ -107,7 +106,7 @@ public class DibreActivity extends ListActivity {
         btPrevious.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (cont>0){
+                if (cont > 0) {
                     cont--;
                     chamaDibres(cont);
                 }
@@ -116,9 +115,5 @@ public class DibreActivity extends ListActivity {
     }
     void gerarToast(CharSequence message) {
         Crouton.makeText(getActivity(), message, Style.INFO).show();
-    }
-    void minimizaTeclado(){
-        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),InputMethodManager.HIDE_NOT_ALWAYS);
     }
 }

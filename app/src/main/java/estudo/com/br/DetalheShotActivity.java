@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import estudo.com.br.R;
 import estudo.com.br.controllers.CircleTransform;
 import estudo.com.br.entitys.Shhhot;
 
