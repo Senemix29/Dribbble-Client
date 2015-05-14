@@ -15,6 +15,7 @@ import estudo.com.br.entitys.Shhhot;
 
 public class DetalheShotActivity extends Activity {
 
+
     TextView txName, txDescription, txTitle;
     ImageView imagePost,imageAvatar;
     @Override

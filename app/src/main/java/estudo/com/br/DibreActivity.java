@@ -35,7 +35,6 @@ public class DibreActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.shot_listview);
         cont=0;
-
         inicializaObjetos();
         objListeners();
         cont++;
