@@ -33,7 +33,7 @@ public class DibreActivity extends ListActivity {
         inicializaObjetos();
         objListeners();
         cont++;
-        chamaDibres(cont);
+        chamaDibre(cont);
     }
     @Override
     protected void onDestroy() {
@@ -45,7 +45,7 @@ public class DibreActivity extends ListActivity {
         return this;
     }
 
-    void chamaDibres(int id){
+    void chamaDibre(int id){
         String url = "http://api.dribbble.com/shots/popular?page=";
 
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -93,7 +93,7 @@ public class DibreActivity extends ListActivity {
             public void onClick(View v) {
                 if (cont<50) {
                     cont++;
-                    chamaDibres(cont);
+                    chamaDibre(cont);
                 }
             }
         });
@@ -102,7 +102,7 @@ public class DibreActivity extends ListActivity {
             public void onClick(View v) {
                 if (cont > 0) {
                     cont--;
-                    chamaDibres(cont);
+                    chamaDibre(cont);
                 }
             }
         });
